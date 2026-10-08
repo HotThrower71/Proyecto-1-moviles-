@@ -64,9 +64,10 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor:'blue',
     flex: 1,
     justifyContent: 'center',
-    flexDirection: 'row',
+    flexDirection: 'column',
   },
   safeArea: {
     flex: 1,
@@ -77,6 +78,7 @@ const styles = StyleSheet.create({
     maxWidth: MaxContentWidth,
   },
   heroSection: {
+    borderRadius:49,
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
@@ -85,11 +87,16 @@ const styles = StyleSheet.create({
   },
   title: {
     textAlign: 'center',
+    fontSize: 60,
+    color: 'green',
+    fontWeight:'bold',
+    
   },
   code: {
     textTransform: 'uppercase',
   },
   stepContainer: {
+    backgroundColor:'red',
     gap: Spacing.three,
     alignSelf: 'stretch',
     paddingHorizontal: Spacing.three,
