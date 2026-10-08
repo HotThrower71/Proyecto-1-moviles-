@@ -26,7 +26,6 @@ export function Collapsible({ children, title }: PropsWithChildren & { title: st
             style={{ transform: [{ rotate: isOpen ? '-90deg' : '90deg' }] }}
           />
         </ThemedView>
-
         <ThemedText type="small">{title}</ThemedText>
       </Pressable>
       {isOpen && (
