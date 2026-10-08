@@ -1,13 +1,14 @@
 import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
+import { Platform, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AnimatedIcon } from '@/components/animated-icon';
-import { HintRow } from '@/components/hint-row';
+import GameCard from "@/components/GameCard.jsx";
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { WebBadge } from '@/components/web-badge';
 import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+
 
 function getDevMenuHint() {
   if (Platform.OS === 'web') {
@@ -38,23 +39,23 @@ export default function HomeScreen() {
             Welcome Miquel
           </ThemedText>
         </ThemedView>
-
-        <ThemedText type="code" style={styles.code}>
-          get started
-        </ThemedText>
-
-        <ThemedView type="backgroundElement" style={styles.stepContainer}>
-          <HintRow
-            title="dd"
-            hint={<ThemedText type="code">src/app/index.tsx</ThemedText>}
+        <View style={{ marginTop: 60 }}>
+          <GameCard 
+              nombre="Batman Arkham City" 
+              plataforma="Xbox360" 
+              año="2011" 
+              // Cambia la ruta dentro del require según donde tengas tu imagen.
+              // Por ejemplo, si está en la carpeta assets general del proyecto:
+              logoSource={require('../../assets/images/xbox.png')}
           />
-          <HintRow title="Dev tools" hint={getDevMenuHint()} />
-          <HintRow
-            title="Fresh start"
-            hint={<ThemedText type="code">npm run reset-project</ThemedText>}
+          <GameCard 
+              nombre="Marvel's Spider-Man" 
+              plataforma="PlayStation" 
+              año="2018" 
+              // En Expo también suele funcionar el alias @/ para ir a la raíz de src
+              logoSource={require('@/assets/images/playstation.jpg')}
           />
-        </ThemedView>
-
+        </View>  
         {Platform.OS === 'web' && <WebBadge />}
       </SafeAreaView>
     </ThemedView>
